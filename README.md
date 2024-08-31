@@ -30,6 +30,12 @@
             animation: float 6s infinite ease-in-out;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             background: linear-gradient(145deg, #ffffff, #e6e6e6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #000;
+            font-size: 18px;
+            font-weight: bold;
         }
         .balloon::after {
             content: '';
@@ -117,7 +123,7 @@
         const colors = ['#ff6347', '#ffcc00', '#66ccff', '#cc66ff', '#99ff99', '#ff66b2', '#ff9966'];
         const container = document.getElementById('balloon-container');
 
-        // Generate 21 balloons
+        // Generate 21 balloons with numbers
         for (let i = 0; i < 21; i++) {
             const balloon = document.createElement('div');
             balloon.classList.add('balloon');
@@ -125,12 +131,15 @@
             balloon.style.left = `${Math.random() * 80}vw`;
             balloon.style.top = `${Math.random() * 80}vh`;
             balloon.style.animationDuration = `${Math.random() * 2 + 4}s`;
-            
+
             // Add shine effect
             const shine = document.createElement('div');
             shine.classList.add('shine');
             balloon.appendChild(shine);
             
+            // Add number to balloon
+            balloon.innerText = i + 1;
+
             balloon.onclick = popBalloon;
             container.appendChild(balloon);
         }
@@ -162,7 +171,7 @@
 
         function openPresent() {
             const presentBox = document.getElementById('presentBox');
-            if (presentBox.innerHTML === 'Selamat Ulang Tahun!') {
+            if (presentBox.innerHTML === 'Selamat Ulang Tahun Maman!') {
                 presentBox.style.display = 'none';
             } else {
                 presentBox.innerHTML = 'Selamat Ulang Tahun!';
