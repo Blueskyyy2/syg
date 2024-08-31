@@ -28,12 +28,14 @@
             cursor: pointer;
             transition: transform 0.2s;
             animation: float 6s infinite ease-in-out;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(145deg, #ffffff, #e6e6e6);
         }
         .balloon::after {
             content: '';
             width: 4px;
             height: 20px;
-            background-color: inherit;
+            background-color: #555;
             position: absolute;
             bottom: -20px;
             left: 50%;
@@ -41,6 +43,17 @@
         }
         .balloon:active {
             transform: scale(0.8);
+        }
+        .shine {
+            position: absolute;
+            top: 10%;
+            left: 25%;
+            width: 50%;
+            height: 50%;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            transform: rotate(45deg);
+            pointer-events: none;
         }
         @keyframes float {
             0% {
@@ -112,6 +125,12 @@
             balloon.style.left = `${Math.random() * 80}vw`;
             balloon.style.top = `${Math.random() * 80}vh`;
             balloon.style.animationDuration = `${Math.random() * 2 + 4}s`;
+            
+            // Add shine effect
+            const shine = document.createElement('div');
+            shine.classList.add('shine');
+            balloon.appendChild(shine);
+            
             balloon.onclick = popBalloon;
             container.appendChild(balloon);
         }
@@ -143,10 +162,10 @@
 
         function openPresent() {
             const presentBox = document.getElementById('presentBox');
-            if (presentBox.innerHTML === 'Happy Birthday!') {
+            if (presentBox.innerHTML === 'Selamat Ulang Tahun!') {
                 presentBox.style.display = 'none';
             } else {
-                presentBox.innerHTML = 'Happy Birthday!';
+                presentBox.innerHTML = 'Selamat Ulang Tahun!';
                 presentBox.style.width = '150px';
                 presentBox.style.height = '150px';
                 presentBox.style.lineHeight = '150px';
