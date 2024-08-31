@@ -160,18 +160,18 @@
             setTimeout(() => {
                 cake.style.background = 'url("https://example.com/extinguished-cake.png") no-repeat center center';
                 cake.style.backgroundSize = 'contain';
-                showPresent();
+                showPresent(); // Panggil fungsi untuk menampilkan kado
             }, 10000); // 10 seconds to simulate blowing the candle
         }
 
         function showPresent() {
             const presentBox = document.getElementById('presentBox');
-            presentBox.style.display = 'block';
+            presentBox.style.display = 'block'; // Menampilkan kotak kado
         }
 
         function openPresent() {
             const presentBox = document.getElementById('presentBox');
-            if (presentBox.innerHTML === 'Selamat Ulang Tahun Maman!') {
+            if (presentBox.innerHTML === 'Selamat Ulang Tahun!') {
                 presentBox.style.display = 'none';
             } else {
                 presentBox.innerHTML = 'Selamat Ulang Tahun!';
